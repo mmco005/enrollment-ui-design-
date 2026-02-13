@@ -1,105 +1,88 @@
-/* 1. VARIABLES & GLOBAL STYLES */
+/* App.css - Final Professional Layout */
+
 :root {
   --soft-pink: #fce4ec;
   --main-pink: #f06292;
   --dark-pink: #880e4f;
   --white: #ffffff;
-  --gray: #f5f5f5;
+  --error-red: #d32f2f;
 }
 
-body {
-  background-color: var(--soft-pink);
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-/* 2. LAYOUT & CENTERING */
 .App {
   padding: 40px 20px;
-  display: flex; /* Mandatory for centering */
+  display: flex;
   flex-direction: column;
   align-items: center; 
   min-height: 100vh;
-}
-
-header {
-  text-align: center;
-  color: var(--dark-pink);
-  margin-bottom: 40px;
+  background-color: var(--soft-pink);
 }
 
 form {
-  width: 100%;
-  max-width: 1100px; /* Limits width for a professional look */
-  margin: 0 auto; 
+  width: 98%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-/* 3. FORM COMPONENTS */
+/* Error Indicator: Red Asterisk for Required Labels */
+.required::after {
+  content: " *";
+  color: var(--error-red);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Visual Feedback for Focus and Errors */
+input:focus, select:focus {
+  outline: none;
+  border: 2px solid var(--main-pink);
+  box-shadow: 0 0 10px rgba(240, 98, 146, 0.3);
+}
+
+/* Red border only when the user interacts but leaves it empty */
+input:invalid:not(:placeholder-shown) {
+  border: 2px solid var(--error-red);
+}
+
 fieldset {
   background-color: var(--white);
   border: 2px solid var(--main-pink);
   border-radius: 15px;
   margin-bottom: 30px;
-  padding: 25px;
+  padding: 30px;
   box-shadow: 0 8px 15px rgba(0,0,0,0.05);
 }
 
 legend {
   background-color: var(--main-pink);
   color: white;
-  padding: 5px 20px;
+  padding: 5px 25px;
   border-radius: 20px;
   font-weight: bold;
-  font-size: 0.9rem;
-}
-
-/* Phase 3: Grid System */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4-column layout */
-  gap: 20px;
-  padding: 10px;
 }
 
 label {
   display: flex;
   flex-direction: column;
-  font-size: 0.85rem;
-  color: #444;
   font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 input, select {
-  padding: 10px;
+  padding: 12px;
   margin-top: 5px;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-/* Phase 3 Requirement: Visual Feedback on Focus */
-input:focus, select:focus {
-  outline: none;
-  border: 2px solid var(--main-pink);
-  box-shadow: 0 0 10px rgba(240, 98, 146, 0.2);
-}
-
-/* 4. SPECIAL ELEMENTS */
-.radio-group {
-  margin: 15px 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px dashed var(--soft-pink);
-}
-
-.radio-group p {
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: var(--dark-pink);
+  font-size: 0.95rem;
 }
 
 .submit-btn {
   display: block;
-  width: 250px;
+  width: 300px;
   margin: 40px auto;
   padding: 15px;
   background-color: var(--dark-pink);
@@ -108,22 +91,17 @@ input:focus, select:focus {
   border-radius: 50px;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: 0.3s;
 }
 
 .submit-btn:hover {
   background-color: var(--main-pink);
 }
 
-/* Phase 3 Requirement: Responsiveness */
-@media (max-width: 900px) {
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr); 
-  }
+/* Responsiveness */
+@media (max-width: 1100px) {
+  .grid-container { grid-template-columns: repeat(2, 1fr); }
 }
-
 @media (max-width: 600px) {
-  .grid-container {
-    grid-template-columns: 1fr; 
-  }
+  .grid-container { grid-template-columns: 1fr; }
 }
