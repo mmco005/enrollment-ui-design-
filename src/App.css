@@ -1,5 +1,4 @@
-/* App.css - Classy Pink Theme */
-
+/* 1. VARIABLES & GLOBAL STYLES */
 :root {
   --soft-pink: #fce4ec;
   --main-pink: #f06292;
@@ -14,31 +13,35 @@ body {
   font-family: 'Segoe UI', sans-serif;
 }
 
+/* 2. LAYOUT & CENTERING */
 .App {
-  padding: 20px;
+  padding: 40px 20px;
+  display: flex; /* Mandatory for centering */
+  flex-direction: column;
+  align-items: center; 
+  min-height: 100vh;
 }
 
 header {
   text-align: center;
   color: var(--dark-pink);
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
-/* Phase 3: Grid System  */
-.grid-container {
-  display: grid;
-  /* Creates 4 columns on desktop */
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 20px;
-  padding: 10px;
+form {
+  width: 100%;
+  max-width: 1100px; /* Limits width for a professional look */
+  margin: 0 auto; 
 }
 
+/* 3. FORM COMPONENTS */
 fieldset {
   background-color: var(--white);
   border: 2px solid var(--main-pink);
   border-radius: 15px;
-  margin-bottom: 25px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+  padding: 25px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.05);
 }
 
 legend {
@@ -48,6 +51,14 @@ legend {
   border-radius: 20px;
   font-weight: bold;
   font-size: 0.9rem;
+}
+
+/* Phase 3: Grid System */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4-column layout */
+  gap: 20px;
+  padding: 10px;
 }
 
 label {
@@ -66,13 +77,14 @@ input, select {
   transition: all 0.3s ease;
 }
 
-/* Phase 3 Requirement: Visual Feedback on Focus [cite: 141] */
+/* Phase 3 Requirement: Visual Feedback on Focus */
 input:focus, select:focus {
   outline: none;
   border: 2px solid var(--main-pink);
   box-shadow: 0 0 10px rgba(240, 98, 146, 0.2);
 }
 
+/* 4. SPECIAL ELEMENTS */
 .radio-group {
   margin: 15px 10px;
   padding-bottom: 10px;
@@ -103,15 +115,15 @@ input:focus, select:focus {
   background-color: var(--main-pink);
 }
 
-/* Phase 3 Requirement: Responsiveness [cite: 142] */
+/* Phase 3 Requirement: Responsiveness */
 @media (max-width: 900px) {
   .grid-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+    grid-template-columns: repeat(2, 1fr); 
   }
 }
 
 @media (max-width: 600px) {
   .grid-container {
-    grid-template-columns: 1fr; /* 1 column for mobile */
+    grid-template-columns: 1fr; 
   }
 }
