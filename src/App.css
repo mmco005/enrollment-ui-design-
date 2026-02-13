@@ -1,38 +1,117 @@
+/* App.css - Classy Pink Theme */
+
+:root {
+  --soft-pink: #fce4ec;
+  --main-pink: #f06292;
+  --dark-pink: #880e4f;
+  --white: #ffffff;
+  --gray: #f5f5f5;
+}
+
+body {
+  background-color: var(--soft-pink);
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
 .App {
+  padding: 20px;
+}
+
+header {
   text-align: center;
+  color: var(--dark-pink);
+  margin-bottom: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Phase 3: Grid System  */
+.grid-container {
+  display: grid;
+  /* Creates 4 columns on desktop */
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px;
+  padding: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+fieldset {
+  background-color: var(--white);
+  border: 2px solid var(--main-pink);
+  border-radius: 15px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+legend {
+  background-color: var(--main-pink);
+  color: white;
+  padding: 5px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+label {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 0.85rem;
+  color: #444;
+  font-weight: 600;
+}
+
+input, select {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Phase 3 Requirement: Visual Feedback on Focus [cite: 141] */
+input:focus, select:focus {
+  outline: none;
+  border: 2px solid var(--main-pink);
+  box-shadow: 0 0 10px rgba(240, 98, 146, 0.2);
+}
+
+.radio-group {
+  margin: 15px 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--soft-pink);
+}
+
+.radio-group p {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--dark-pink);
+}
+
+.submit-btn {
+  display: block;
+  width: 250px;
+  margin: 40px auto;
+  padding: 15px;
+  background-color: var(--dark-pink);
   color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.submit-btn:hover {
+  background-color: var(--main-pink);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Phase 3 Requirement: Responsiveness [cite: 142] */
+@media (max-width: 900px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* 1 column for mobile */
   }
 }
